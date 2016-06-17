@@ -1,0 +1,31 @@
+---
+- name: Make sure galera backup directory on galera container exists
+  file:
+    path: "{{ osa_backup_remote_galera_dir }}"
+    state: directory
+    mode: 0755
+  delegate_to: "{{ groups['galera_all'][0] }}"
+  tags:
+    - openstack-backup-galera
+
+- name: Make sure galera backup directory on this server exists
+  file:
+    path: "{{ osa_backup_galera_dir }}"
+    state: directory
+    mode: 0755
+  tags:
+    - openstack-backup-galera
+
+- name: Backup galera server database
+  shell: innobackupex --compress --compress-threads=8 "{{ osa_backup_remote_galera_dir }}"
+  delegate_to: "{{ groups['galera_all'][0] }}"
+  tags:
+    - openstack-backup-galera
+
+- name: Move backup file from galera container to this server
+  synchronize:
+    src: "root@{{ hostvars[groups['galera_all'][0]]['ansible_ssh_host'] }}:{{ osa_backup_remote_galera_dir }}/"
+    dest: "{{ osa_backup_galera_dir }}/"
+  tags:
+    - openstack-backup-galera
+    - openstack-backup-galera-sync

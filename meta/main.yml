@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Jirayut Nimsaeng
+  description: Role backup operation for OpenStack-Ansible
+  license: Apache2
+  min_ansible_version: 1.9.3
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  galaxy_tags:
+    - cloud
+    - openstack
+    - percona
+    - mariadb
+    - galera
+dependencies: {}

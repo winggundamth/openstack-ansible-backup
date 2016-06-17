@@ -1,0 +1,6 @@
+---
+- name: Backup openstack
+  hosts: localhost
+  user: root
+  roles:
+    - role: openstack-ansible-backup
