@@ -13,4 +13,4 @@ galaxy_info:
     - percona
     - mariadb
     - galera
-dependencies: {}
+dependencies: []

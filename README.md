@@ -30,7 +30,7 @@ Example Playbook
   hosts: localhost
   user: root
   roles:
-    - role: openstack-ansible-backup
+    - role: winggundamth.openstack-ansible-backup
 ```
 
 How to use
