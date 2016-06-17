@@ -14,6 +14,7 @@ Role Variables
 ```yaml
 osa_backup_galera_dir: /opt/openstack-backup/galera
 osa_backup_remote_galera_dir: "{{ osa_backup_galera_dir }}"
+osa_backup_galera_retention_day: 7
 ```
 
 Dependencies
@@ -47,7 +48,7 @@ cd /opt/openstack-ansible/playbooks/
 openstack-ansible openstack-backup.yml
 ```
 
-Then you can see your backup files at ```/opt/openstack-backup/``` by default. You can change this by configure variables in this role.
+Then you can see your backup files at ```/opt/openstack-backup/``` by default. You can change this by putting configure variables in this role to ```/etc/openstack_deploy/user_variables.yml``` file.
 
 License
 -------

@@ -1,0 +1,17 @@
+---
+- name: Remove backup files the older than retention day
+  command: |
+    find "{{ osa_backup_remote_galera_dir }}" -mindepth 1 -maxdepth 1 -type d \
+    -ctime +"{{ osa_backup_galera_retention_day }}" -exec rm -rf {} +
+  tags:
+    - openstack-backup-retention
+
+# TODO Will change retention to find module when OSA use Ansible version 2
+# - name: Find directory that older than retention
+#   find:
+#     paths: "{{ osa_backup_remote_galera_dir }}"
+#     age: "{{ osa_backup_galera_retention_day }}"
+#     recurse: no
+#     file_type: directory
+#   tags:
+#     - openstack-backup-retention
