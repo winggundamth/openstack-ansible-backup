@@ -6,7 +6,7 @@
     hour: "{{ osa_backup_cron_hour }}"
     day: "{{ osa_backup_cron_day }}"
     month: "{{ osa_backup_cron_month }}"
-    year: "{{ osa_backup_cron_year }}"
+    weekday: "{{ osa_backup_cron_weekday }}"
     job: "{{ osa_backup_cron_command }}"
   tags:
     - openstack-backup-cron
