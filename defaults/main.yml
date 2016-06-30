@@ -2,3 +2,10 @@
 osa_backup_galera_dir: /opt/openstack-backup/galera
 osa_backup_remote_galera_dir: "{{ osa_backup_galera_dir }}"
 osa_backup_galera_retention_day: 7
+
+osa_backup_cron_minute: "0"
+osa_backup_cron_hour: "2"
+osa_backup_cron_day: "*"
+osa_backup_cron_month: "*"
+osa_backup_cron_year: "*"
+osa_backup_cron_command: "/usr/local/bin/openstack-ansible -i /opt/openstack-ansible/playbooks/inventory/dynamic_inventory.py /opt/openstack-ansible/playbooks/openstack-backup.yml"
