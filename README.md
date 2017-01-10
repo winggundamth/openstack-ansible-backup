@@ -36,7 +36,7 @@ Example Playbook
   hosts: localhost
   user: root
   roles:
-    - role: winggundamth.openstack-ansible-backup
+    - role: opsta.openstack-ansible-backup
 ```
 
 How to use
@@ -46,9 +46,9 @@ Run these commands on deploy node
 
 ```bash
 # Install this role
-ansible-galaxy install -f winggundamth.openstack-ansible-backup
+ansible-galaxy install -f opsta.openstack-ansible-backup
 # Create playbook file
-wget -O /opt/openstack-ansible/playbooks/openstack-backup.yml https://raw.githubusercontent.com/winggundamth/openstack-ansible-backup/master/playbooks/openstack-backup.yml
+wget -O /opt/openstack-ansible/playbooks/openstack-backup.yml https://raw.githubusercontent.com/opsta/openstack-ansible-backup/master/playbooks/openstack-backup.yml
 # Run playbooks to backup
 cd /opt/openstack-ansible/playbooks/
 openstack-ansible openstack-backup.yml
