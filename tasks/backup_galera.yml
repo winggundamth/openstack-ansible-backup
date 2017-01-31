@@ -30,10 +30,21 @@
   tags:
     - openstack-backup-galera
 
+# Can not use synchronize module on Ansible 2.0 or 2.1 because of this bug
+# https://github.com/ansible/ansible/issues/17492
+#- name: Move backup files from galera container to this server
+#  synchronize:
+#    src: "root@{{ hostvars[groups['galera_all'][0]]['ansible_ssh_host'] }}:{{ osa_backup_remote_galera_dir }}/"
+#    dest: "{{ osa_backup_galera_dir }}/"
+#  tags:
+#    - openstack-backup-galera
+#    - openstack-backup-galera-sync
+
+# Use rsync command instead of synchronize module
 - name: Move backup files from galera container to this server
-  synchronize:
-    src: "root@{{ hostvars[groups['galera_all'][0]]['ansible_ssh_host'] }}:{{ osa_backup_remote_galera_dir }}/"
-    dest: "{{ osa_backup_galera_dir }}/"
+  command: "rsync -aze 'ssh -o StrictHostKeyChecking=no'
+    root@{{ hostvars[groups['galera_all'][0]]['ansible_ssh_host'] }}:{{ osa_backup_remote_galera_dir }}/
+    {{ osa_backup_galera_dir }}/"
   tags:
     - openstack-backup-galera
     - openstack-backup-galera-sync
