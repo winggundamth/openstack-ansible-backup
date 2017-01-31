@@ -12,7 +12,7 @@ Role Variables
 --------------
 
 ```yaml
-osa_backup_galera_dir: /opt/openstack-backup/galera
+osa_backup_galera_dir: /openstack/backup/galera
 osa_backup_remote_galera_dir: "{{ osa_backup_galera_dir }}"
 osa_backup_galera_retention_day: 7
 osa_backup_cron_minute: "0"
