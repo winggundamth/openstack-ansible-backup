@@ -3,4 +3,4 @@
   hosts: localhost
   user: root
   roles:
-    - role: winggundamth.openstack-ansible-backup
+    - role: opsta.openstack-ansible-backup
