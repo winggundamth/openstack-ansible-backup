@@ -1,3 +1,7 @@
+Not maintain anymore. Please use https://github.com/opsta/openstack-ansible-backup instead
+=========
+
+
 OpenStack Ansible backup
 =========
 
